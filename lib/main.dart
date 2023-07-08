@@ -1,4 +1,5 @@
 import 'package:fit_help_app/page/BaseNav.dart';
+import 'package:fit_help_app/page/PageAkunSaya.dart';
 import 'package:fit_help_app/page/PageDaftar.dart';
 import 'package:fit_help_app/page/PageIntro.dart';
 import 'package:fit_help_app/page/PageLogin.dart';
@@ -6,11 +7,16 @@ import 'package:fit_help_app/page/nav/PageBeranda.dart';
 import 'package:fit_help_app/page/nav/PageChat.dart';
 import 'package:fit_help_app/page/nav/PageDetailDokter.dart';
 import 'package:fit_help_app/page/nav/PageIdentifikasiAnak.dart';
+import 'package:fit_help_app/page/nav/PageIdentifikasiAnakGiziBuruk.dart';
 import 'package:fit_help_app/page/nav/PageProfileSaya.dart';
 import 'package:fit_help_app/util/list_color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
+import 'page/PageCariDokterAnak.dart';
+import 'page/PageDetailAkunSaya.dart';
+import 'page/PageGantiSandi.dart';
+import 'page/PageListChat.dart';
 import 'page/TestPage.dart';
 
 void main() {
@@ -32,12 +38,19 @@ class MainApp extends StatelessWidget {
                   ColorApp.ColorButtonPrimary, // Set your desired color here
             ),
       ),
-      initialRoute: PageDetailDokter.routeName.toString(),
+      initialRoute: PageIntro.routeName.toString(),
       defaultTransition: Transition.circularReveal,
       getPages: [
         GetPage(
-            name: PageIdentifikasiAnak.routeName.toString(),
-            page: () => PageIdentifikasiAnak()),
+          name: PageAkunSaya.routeName.toString(),
+          page: () => PageAkunSaya(),
+        ),
+        GetPage(
+            name: PageIdentifikasiAnakGiziBuruk.routeName.toString(),
+            page: () => PageIdentifikasiAnakGiziBuruk()),
+        GetPage(
+            name: PageIdentifikasAnakStunting.routeName.toString(),
+            page: () => PageIdentifikasAnakStunting()),
         GetPage(name: MyPage.routeName.toString(), page: () => MyPage()),
         GetPage(name: BaseNav.routeName.toString(), page: () => BaseNav()),
         GetPage(name: PageIntro.routeName.toString(), page: () => PageIntro()),
@@ -52,7 +65,27 @@ class MainApp extends StatelessWidget {
             page: () => PageProfileSaya()),
         GetPage(
             name: PageDetailDokter.routeName.toString(),
-            page: () => PageDetailDokter())
+            page: () => PageDetailDokter()),
+        GetPage(
+          name: PageChat.routeName.toString(),
+          page: () => PageChat(),
+        ),
+        GetPage(
+          name: PageDetailAkunSaya.routeName.toString(),
+          page: () => PageDetailAkunSaya(),
+        ),
+        GetPage(
+          name: PageGantiSandi.routeName.toString(),
+          page: () => PageGantiSandi(),
+        ),
+        GetPage(
+          name: PageCariDokter.routeName.toString(),
+          page: () => PageCariDokter(),
+        ),
+        GetPage(
+          name: PageListChat.routeName.toString(),
+          page: () => PageListChat(),
+        )
       ],
     );
   }

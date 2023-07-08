@@ -7,12 +7,16 @@ environment:
   sdk: '>=2.19.6 <3.0.0'
 
 dependencies:
+  flashy_tab_bar2: ^0.0.6
   flutter:
     sdk: flutter
+  flutter_profile_picture: ^2.0.0
   flutter_screenutil: ^5.7.0
   get: ^4.6.5
   google_fonts: ^4.0.4
+  google_nav_bar: ^5.0.6
   http: ^0.13.6
+  url_launcher: ^6.1.11
 
 dev_dependencies:
   flutter_test:

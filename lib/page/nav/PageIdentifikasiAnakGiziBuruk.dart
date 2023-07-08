@@ -8,11 +8,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class PageIdentifikasAnakStunting extends StatefulWidget {
-  static String? routeName = "/PageIdentifikasAnakStunting";
+class PageIdentifikasiAnakGiziBuruk extends StatefulWidget {
+  static String? routeName = "/PageIdentifikasiAnakGiziBuruk";
   @override
-  State<PageIdentifikasAnakStunting> createState() =>
-      _PageIdentifikasAnakStuntingState();
+  State<PageIdentifikasiAnakGiziBuruk> createState() =>
+      _PageIdentifikasiAnakGiziBurukState();
 }
 
 class SoalData {
@@ -22,8 +22,8 @@ class SoalData {
   SoalData(this.teksSoal, this.listJawaban, this.jawabanUser);
 }
 
-class _PageIdentifikasAnakStuntingState
-    extends State<PageIdentifikasAnakStunting> {
+class _PageIdentifikasiAnakGiziBurukState
+    extends State<PageIdentifikasiAnakGiziBuruk> {
   List<SoalData> listSoal = [];
 
   @override
@@ -32,37 +32,73 @@ class _PageIdentifikasAnakStuntingState
     super.initState();
     listSoal = [
       SoalData(
-        "Apakah anak usia satu tahun memiliki pertumbuhan tulang yang tertunda?",
+        "Apakah tubuh anak usia satu tahun tampak sangat kurus?",
         [
-          "a) Ya, pertumbuhan tulang anak tersebut tertunda.",
-          "b) Tidak, pertumbuhan tulang anak tersebut normal.",
+          "a) Ya, tubuh anak tampak sangat kurus.",
+          "b) Tidak, tubuh anak tampak normal.",
           "c) Tidak yakin/tidak bisa diketahui."
         ],
         "",
       ),
       SoalData(
-        "Apakah berat badan anak tersebut rendah dibandingkan dengan anak seusianya?",
+        "Apakah wajah anak tampak keriput?",
         [
-          "a) Ya, berat badan anak tersebut rendah.",
-          "b) Tidak, berat badan anak tersebut normal.",
+          "a) Ya, wajah anak tampak keriput.",
+          "b) Tidak, wajah anak tampak normal.",
           "c) Tidak yakin/tidak bisa diketahui."
         ],
         "",
       ),
       SoalData(
-        "Apakah sang anak berbadan lebih pendek dari anak seusianya?",
+        "Apakah kulit anak tampak kering?",
         [
-          "a) Ya, anak tersebut lebih pendek dari anak seusianya.",
-          "b) Tidak, anak tersebut memiliki tinggi badan yang normal.",
+          "a) Ya, kulit anak tampak kering.",
+          "b) Tidak, kulit anak tampak normal.",
           "c) Tidak yakin/tidak bisa diketahui."
         ],
         "",
       ),
       SoalData(
-        "Apakah proporsi tubuh anak tersebut cenderung normal tapi tampak lebih muda/kecil untuk seusianya?",
+        "Apakah perut anak tampak buncit?",
         [
-          "a) Ya, proporsi tubuh anak tersebut tampak lebih muda/kecil.",
-          "b) Tidak, proporsi tubuh anak tersebut sesuai dengan usianya.",
+          "a) Ya, perut anak tampak buncit.",
+          "b) Tidak, perut anak tampak normal.",
+          "c) Tidak yakin/tidak bisa diketahui."
+        ],
+        "",
+      ),
+      SoalData(
+        "Apakah anak sering lemas dan tidak aktif bermain?",
+        [
+          "a) Ya, anak sering lemas dan tidak aktif bermain.",
+          "b) Tidak, anak memiliki energi dan aktif bermain.",
+          "c) Tidak yakin/tidak bisa diketahui."
+        ],
+        "",
+      ),
+      SoalData(
+        "Apakah anak mengalami gangguan tumbuh kembang?",
+        [
+          "a) Ya, anak mengalami gangguan tumbuh kembang.",
+          "b) Tidak, anak mengalami perkembangan yang normal.",
+          "c) Tidak yakin/tidak bisa diketahui."
+        ],
+        "",
+      ),
+      SoalData(
+        "Apakah rambut anak mudah rontok dan tampak kusam?",
+        [
+          "a) Ya, rambut anak mudah rontok dan tampak kusam.",
+          "b) Tidak, rambut anak sehat dan tidak rontok.",
+          "c) Tidak yakin/tidak bisa diketahui."
+        ],
+        "",
+      ),
+      SoalData(
+        "Apakah ada pembengkakan (edema) di tungkai anak?",
+        [
+          "a) Ya, ada pembengkakan (edema) di tungkai anak.",
+          "b) Tidak, tidak ada pembengkakan di tungkai anak.",
           "c) Tidak yakin/tidak bisa diketahui."
         ],
         "",
@@ -182,7 +218,7 @@ class _PageIdentifikasAnakStuntingState
                         builder: (context) {
                           return AlertDialog(
                             title: Text("Hasil Identifikasi Anak Anda"),
-                            content: Text("Terkena Stunting"),
+                            content: Text("Terkena Gizi Buruk"),
                             actions: [
                               ElevatedButton(
                                 style: ButtonStyle(
@@ -210,7 +246,7 @@ class _PageIdentifikasAnakStuntingState
                         builder: (context) {
                           return AlertDialog(
                             title: Text("Hasil Identifikasi Anak Anda"),
-                            content: Text("Terkena Stunting"),
+                            content: Text("Terkena Gizi Buruk"),
                             actions: [
                               ElevatedButton(
                                 style: ButtonStyle(
@@ -238,7 +274,7 @@ class _PageIdentifikasAnakStuntingState
                         builder: (context) {
                           return AlertDialog(
                             title: Text("Hasil Identifikasi Anak Anda"),
-                            content: Text("Terkena Stunting"),
+                            content: Text("Terkena Gizi Buruk"),
                             actions: [
                               ElevatedButton(
                                 style: ButtonStyle(
@@ -266,7 +302,7 @@ class _PageIdentifikasAnakStuntingState
                         builder: (context) {
                           return AlertDialog(
                             title: Text("Hasil Identifikasi Anak Anda"),
-                            content: Text("Anak Anda Tidak Stunting"),
+                            content: Text("Terkena Gizi Buruk"),
                             actions: [
                               ElevatedButton(
                                 style: ButtonStyle(
@@ -294,7 +330,119 @@ class _PageIdentifikasAnakStuntingState
                         builder: (context) {
                           return AlertDialog(
                             title: Text("Hasil Identifikasi Anak Anda"),
-                            content: Text("Anak Anda Tidak Stunting"),
+                            content: Text("Terkena Gizi Buruk"),
+                            actions: [
+                              ElevatedButton(
+                                style: ButtonStyle(
+                                    backgroundColor: MaterialStatePropertyAll(
+                                        ColorApp.primary)),
+                                onPressed: () {
+                                  // Tambahkan logika untuk menghandle tombol "Informasi Terkait" di sini
+                                  Get.offAndToNamed(
+                                      BaseNav.routeName.toString());
+                                },
+                                child: Text(
+                                  "Kembali",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                      )
+                    }
+                  else if (countJawabanA == listSoal.length - 5)
+                    {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text("Hasil Identifikasi Anak Anda"),
+                            content: Text("Terkena Gizi Buruk"),
+                            actions: [
+                              ElevatedButton(
+                                style: ButtonStyle(
+                                    backgroundColor: MaterialStatePropertyAll(
+                                        ColorApp.primary)),
+                                onPressed: () {
+                                  // Tambahkan logika untuk menghandle tombol "Informasi Terkait" di sini
+                                  Get.offAndToNamed(
+                                      BaseNav.routeName.toString());
+                                },
+                                child: Text(
+                                  "Kembali",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                      )
+                    }
+                  else if (countJawabanA == listSoal.length - 6)
+                    {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text("Hasil Identifikasi Anak Anda"),
+                            content: Text("Anak Anda Sehat"),
+                            actions: [
+                              ElevatedButton(
+                                style: ButtonStyle(
+                                    backgroundColor: MaterialStatePropertyAll(
+                                        ColorApp.primary)),
+                                onPressed: () {
+                                  // Tambahkan logika untuk menghandle tombol "Informasi Terkait" di sini
+                                  Get.offAndToNamed(
+                                      BaseNav.routeName.toString());
+                                },
+                                child: Text(
+                                  "Kembali",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                      )
+                    }
+                  else if (countJawabanA == listSoal.length - 7)
+                    {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text("Hasil Identifikasi Anak Anda"),
+                            content: Text("Anak Anda Sehat"),
+                            actions: [
+                              ElevatedButton(
+                                style: ButtonStyle(
+                                    backgroundColor: MaterialStatePropertyAll(
+                                        ColorApp.primary)),
+                                onPressed: () {
+                                  // Tambahkan logika untuk menghandle tombol "Informasi Terkait" di sini
+                                  Get.offAndToNamed(
+                                      BaseNav.routeName.toString());
+                                },
+                                child: Text(
+                                  "Kembali",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                      )
+                    }
+                  else if (countJawabanA == listSoal.length - 8)
+                    {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text("Hasil Identifikasi Anak Anda"),
+                            content: Text("Anak Anda Sehat"),
                             actions: [
                               ElevatedButton(
                                 style: ButtonStyle(

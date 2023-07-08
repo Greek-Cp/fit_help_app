@@ -1,10 +1,12 @@
 import 'package:fit_help_app/component/ComponentButton.dart';
 import 'package:fit_help_app/component/ComponentText.dart';
 import 'package:fit_help_app/component/ComponentTextField.dart';
+import 'package:fit_help_app/page/BaseNav.dart';
 import 'package:fit_help_app/util/list_color.dart';
 import 'package:fit_help_app/util/size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class PageLogin extends StatefulWidget {
   static String? routeName = "/PageLogin";
@@ -60,7 +62,10 @@ class _NamePageState extends State<PageLogin> {
                   ),
                   ComponentButtonPrimaryWithFunction(
                     "Masuk",
-                    () => {if (_formKey.currentState!.validate()) {} else {}},
+                    () => {
+                      Get.toNamed(BaseNav.routeName.toString()),
+                      if (_formKey.currentState!.validate()) {} else {}
+                    },
                     colorButton: ColorApp.primary,
                   ),
                   Row(

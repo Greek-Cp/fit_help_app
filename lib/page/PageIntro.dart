@@ -65,7 +65,7 @@ class _NamePageState extends State<PageIntro> {
                       ),
                     ),
                     Image.asset(
-                      "assets/gambar_halaman_awal.png",
+                      "assets/img_7.png",
                       width: 270.w,
                       fit: BoxFit.cover,
                     )
