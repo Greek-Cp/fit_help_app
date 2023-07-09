@@ -9,10 +9,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class PageInformasiStunting extends StatefulWidget {
-  static String? routeName = "/PageInformasiStunting";
+class PageInformasiGiziBuruk extends StatefulWidget {
+  static String? routeName = "/PageInformasiGiziBuruk";
   @override
-  State<PageInformasiStunting> createState() => _PageInformasiStuntingState();
+  State<PageInformasiGiziBuruk> createState() => _PageInformasiGiziBurukState();
 }
 
 class ArtikelInformasi {
@@ -24,7 +24,7 @@ class ArtikelInformasi {
       this.urlArtikel);
 }
 
-class _PageInformasiStuntingState extends State<PageInformasiStunting> {
+class _PageInformasiGiziBurukState extends State<PageInformasiGiziBuruk> {
   Future<void> _launchUrl(String? url) async {
     if (!await launchUrl(Uri.parse(url.toString()))) {
       throw Exception('Could not launch $url');
@@ -46,7 +46,7 @@ class _PageInformasiStuntingState extends State<PageInformasiStunting> {
             ClipRRect(
               borderRadius: BorderRadius.circular(15.r),
               child: Image.asset(
-                "${artikelInformasi.gambarArtikel.toString()}",
+                artikelInformasi.gambarArtikel.toString(),
                 width: 90,
                 height: 90,
                 fit: BoxFit.cover,
@@ -91,80 +91,84 @@ class _PageInformasiStuntingState extends State<PageInformasiStunting> {
   }
 
   List<ArtikelInformasi> listArtikelInformasi = [
-    ArtikelInformasi("Apa Itu Stunting ", "Alo Dokter", "assets/stunting_1.jpg",
-        "https://www.alodokter.com/stunting"),
     ArtikelInformasi(
-        "Memahami Stunting Pada Anak ",
-        "Alo Dokter",
-        "assets/stunting_2.jpg",
-        "https://www.alodokter.com/memahami-stunting-pada-anak"),
+      'Gizi Buruk - Gejala, penyebab dan dan mengobati',
+      'AloDokter',
+      'assets/giziburuk_1.jpg',
+      'https://www.alodokter.com/gizi-buruk',
+    ),
     ArtikelInformasi(
-        "Cara Mencegah Stunting Agar Anak Tumbuh Tinggi Dan Sehat",
-        "Silioamhospitals",
-        "assets/stunting_3.png",
-        "https://www.siloamhospitals.com/informasi-siloam/artikel/apa-itu-stunting"),
+      'Gizi Buruk pada Anak: Jenis dan Penanganannya Sesuai...',
+      'HelloSehat',
+      'assets/giziburuk_2.png',
+      'https://hellosehat.com/parenting/kesehatan-anak/gizi-buruk-pada-anak/',
+    ),
     ArtikelInformasi(
-        "Mengenal Apa Itu Stunting",
-        "Kemkes",
-        "assets/stunting_4.jpg",
-        "https://yankes.kemkes.go.id/view_artikel/1388/mengenal-apa-itu-stunting"),
-    ArtikelInformasi("Gejala Stunting", "Halodoc", "assets/stunting_5.png",
-        "https://www.halodoc.com/kesehatan/stunting"),
+      'Gizi Buruk | Tanda dan Gejala, Penyebab, Cara...',
+      'SehatQ',
+      'assets/giziburuk_3.png',
+      'https://www.sehatq.com/penyakit/gizi-buruk',
+    ),
     ArtikelInformasi(
-        "Mengenal Stunting, dari Penyebab hingga Penanganannya",
-        "hallosehat",
-        "assets/stunting_6.png",
-        "https://hellosehat.com/parenting/kesehatan-anak/penyakit-pada-anak/stunting/"),
+      'Gizi Buruk - Penyebab, Gejala, Pengobatan - KlikDokter',
+      'KlikDokter',
+      'assets/giziburuk_4.png',
+      'https://www.klikdokter.com/penyakit/masalah-metabolik/gizi-buruk',
+    ),
     ArtikelInformasi(
-        "Gejala Stunting pada Anak dan Pencegahannya",
-        "primayahospital",
-        "assets/stunting_7.png",
-        "https://primayahospital.com/anak/mencegah-anak-stunting/"),
+      'Serupa Tapi Tak Sama, Kenali Beda Stunting dan Gizi Buruk',
+      'Indonesia Baik',
+      'assets/giziburuk_5.png',
+      'https://indonesiabaik.id/infografis/serupa-tapi-tak-sama-kenali-beda-stunting-dan-gizi-buruk',
+    ),
     ArtikelInformasi(
-        "Apa Itu Stunting pada Anak? Cek Penjelasan Medisnya di Sini!",
-        "pediasure",
-        "assets/stunting_8.png",
-        "https://pediasure.co.id/article/apa-itu-stunting-pada-anak"),
+      'Serupa Tapi Tak Sama, Kenali Beda Stunting dan Gizi Buruk',
+      'stikeshb',
+      'assets/giziburuk_6.png',
+      'https://stikeshb.ac.id/pengertian-gizi-buruk-dan-tanda/',
+    ),
     ArtikelInformasi(
-        "Ibu Harus Tahu, Ini Ciri-Ciri Stunting pada Anak",
-        "halodoc",
-        "assets/stunting_9.png",
-        "https://www.halodoc.com/artikel/ibu-harus-tahu-ini-ciri-ciri-stunting-pada-anak"),
+      'Tanda-tanda Balita Gizi Buruk, Penyebab dan Cara',
+      'Primaya Hospital',
+      'assets/giziburuk_7.png',
+      'https://primayahospital.com/anak/balita-gizi-buruk/',
+    ),
     ArtikelInformasi(
-        "9 Ciri Anak Stunting yang Harus Diwaspadai",
-        "klikdokter",
-        "assets/stunting_10.png",
-        "https://www.klikdokter.com/ibu-anak/kesehatan-anak/tanda-anak-stunting-yang-perlu-anda-perhatikan"),
+      'judul',
+      'HaloDoc',
+      'assets/giziburuk_8.png',
+      'https://www.halodoc.com/artikel/ibu-kenali-faktor-penyebab-anak-mengalami-gizi-buruk',
+    ),
     ArtikelInformasi(
-        "Jangan Anggap Remeh, Berikut ini Ciri-ciri, Penyebab, dan Cara Mencegah Stunting pada Anak",
-        "kehamilansehat",
-        "assets/stunting_11.png",
-        "https://kehamilansehat.com/id/ciri-ciri-dan-penyebab-stunting-pada-anak/"),
+      'Gizi Buruk, Waspadai Busung Lapar dan Stunting pada',
+      'Orami',
+      'assets/giziburuk_9.png',
+      'https://www.orami.co.id/magazine/gizi-buruk',
+    ),
     ArtikelInformasi(
-        "Jangan Anggap Remeh, Berikut ini Ciri-ciri, Penyebab, dan Cara Mencegah Stunting pada Anak",
-        "kehamilansehat",
-        "assets/stunting_11.png",
-        "https://kehamilansehat.com/id/ciri-ciri-dan-penyebab-stunting-pada-anak/"),
+      'Gizi Buruk Balita: Jenis dan Cara Mengobatinya',
+      'theasianparent',
+      'assets/giziburuk_10.png',
+      'https://id.theasianparent.com/gizi-buruk-balita',
+    ),
     ArtikelInformasi(
-        "Ciri-Ciri Stunting pada Anak yang Patut Dikenali, Ketahui Juga Penyebabnya",
-        "merdeka",
-        "assets/stunting_12.png",
-        "https://www.merdeka.com/jatim/ciri-ciri-stunting-pada-anak-yang-patut-dikenali-ketahui-juga-penyebabnya-kln.html"),
+      'Apa itu Gizi Buruk, Tanda, dan Gejalanya',
+      'rsbudimedika',
+      'assets/giziburuk_11.png',
+      'https://www.rsbudimedika.com/gejala-gizi-buruk/',
+    ),
     ArtikelInformasi(
-        "Ini Penyebab Stunting pada Anak",
-        "kemkes",
-        "assets/stunting_13.png",
-        "https://sehatnegeriku.kemkes.go.id/baca/umum/20180524/4125980/penyebab-stunting-anak/"),
+      'Ciri Gizi Buruk Pada Anak - Hermina Hospitals',
+      'Hermina Hospital',
+      'assets/giziburuk_12.png',
+      'https://herminahospitals.com/id/articles/ciri-gizi-buruk-pada-anak.html',
+    ),
     ArtikelInformasi(
-        "Pahami Penyebab Stunting dan Dampaknya pada Kehidupan Anak",
-        "AloDokter",
-        "assets/stunting_14.png",
-        "https://www.alodokter.com/bayi-lahir-stunting-faktor-penyebab-dan-risiko"),
-    ArtikelInformasi(
-        "Kenali Penyebab Stunting Anak",
-        "RSPUP Dr.Sardjito",
-        "assets/stunting_15.png",
-        "https://sardjito.co.id/2019/07/22/kenali-penyebab-stunting-anak/")
+      'Gizi | UNICEF Indonesia',
+      'unicef',
+      'assets/giziburuk_13.png',
+      'https://www.unicef.org/indonesia/id/gizi',
+    ),
   ];
   @override
   Widget build(BuildContext context) {
@@ -190,7 +194,7 @@ class _PageInformasiStuntingState extends State<PageInformasiStunting> {
                           color: Colors.white,
                         )),
                     ComponentTextPrimaryTittleBold(
-                      teks: "Informasi Stunting ",
+                      teks: "Informasi Gizi Buruk ",
                       size: SizeApp.SizeTextHeader.sp,
                       colorText: Colors.white,
                     ),
@@ -204,6 +208,7 @@ class _PageInformasiStuntingState extends State<PageInformasiStunting> {
                   shrinkWrap: true,
                   itemCount: listArtikelInformasi.length,
                   itemBuilder: (context, index) {
+                    print("${listArtikelInformasi[index].gambarArtikel}");
                     return cardInformasi(listArtikelInformasi[index]);
                   },
                 )

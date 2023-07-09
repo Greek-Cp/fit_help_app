@@ -2,6 +2,7 @@ import 'package:fit_help_app/component/ComponentButton.dart';
 import 'package:fit_help_app/component/ComponentText.dart';
 import 'package:fit_help_app/page/BaseNav.dart';
 import 'package:fit_help_app/page/nav/PageIdentifikasiAnak.dart';
+import 'package:fit_help_app/page/nav/PageInformasiStunting.dart';
 import 'package:fit_help_app/util/list_color.dart';
 import 'package:fit_help_app/util/size.dart';
 import 'package:flutter/material.dart';
@@ -217,9 +218,9 @@ class _PageIdentifikasAnakStuntingState
                                     backgroundColor: MaterialStatePropertyAll(
                                         ColorApp.primary)),
                                 onPressed: () {
-                                  // Tambahkan logika untuk menghandle tombol "Informasi Terkait" di sini
-                                  Get.offAndToNamed(
-                                      BaseNav.routeName.toString());
+                                  Get.offAndToNamed(PageInformasiStunting
+                                      .routeName
+                                      .toString());
                                 },
                                 child: Text(
                                   "Informasi Terkait",
@@ -246,8 +247,9 @@ class _PageIdentifikasAnakStuntingState
                                         ColorApp.primary)),
                                 onPressed: () {
                                   // Tambahkan logika untuk menghandle tombol "Informasi Terkait" di sini
-                                  Get.offAndToNamed(
-                                      BaseNav.routeName.toString());
+                                  Get.offAndToNamed(PageInformasiStunting
+                                      .routeName
+                                      .toString());
                                 },
                                 child: Text(
                                   "Informasi Terkait",
@@ -274,8 +276,9 @@ class _PageIdentifikasAnakStuntingState
                                         ColorApp.primary)),
                                 onPressed: () {
                                   // Tambahkan logika untuk menghandle tombol "Informasi Terkait" di sini
-                                  Get.offAndToNamed(
-                                      BaseNav.routeName.toString());
+                                  Get.offAndToNamed(PageInformasiStunting
+                                      .routeName
+                                      .toString());
                                 },
                                 child: Text(
                                   "Kembali",
@@ -302,8 +305,9 @@ class _PageIdentifikasAnakStuntingState
                                         ColorApp.primary)),
                                 onPressed: () {
                                   // Tambahkan logika untuk menghandle tombol "Informasi Terkait" di sini
-                                  Get.offAndToNamed(
-                                      BaseNav.routeName.toString());
+                                  Get.offAndToNamed(PageInformasiStunting
+                                      .routeName
+                                      .toString());
                                 },
                                 child: Text(
                                   "Kembali",

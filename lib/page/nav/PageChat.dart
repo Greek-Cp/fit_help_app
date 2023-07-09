@@ -1,8 +1,11 @@
 import 'package:fit_help_app/component/ComponentText.dart';
+import 'package:fit_help_app/controller/DokterController.dart';
+import 'package:fit_help_app/page/PageCariDokterAnak.dart';
 import 'package:fit_help_app/util/list_color.dart';
 import 'package:fit_help_app/util/size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class PageChat extends StatefulWidget {
   static String? routeName = "/PageChat";
@@ -84,14 +87,17 @@ class TextInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 8.0),
+      color: Colors.white,
       child: Row(
         children: [
           Expanded(
             child: TextField(
               decoration: InputDecoration(
-                hintText: 'Type your message...',
+                hintText: 'Ketikan Pesan Anda...',
                 border: InputBorder.none,
+                fillColor: Colors.white,
+                filled: true,
+                focusColor: Colors.white,
                 contentPadding: EdgeInsets.all(8.0),
               ),
             ),
@@ -111,64 +117,69 @@ class TextInputField extends StatelessWidget {
 class _PageChatState extends State<PageChat> {
   final List<ChatMessage> messages = [
     ChatMessage(
-      text: 'Hi theretherethersssadsathere dsdsadsadsadsadsaHi !',
-      sender: 'User1',
+      text:
+          'Halo, bu! Saya Dr. Amanda, dokter anak di sini. Bagaimana saya bisa membantu Anda hari ini?',
+      sender: 'Dokter',
       time: DateTime.now().subtract(Duration(minutes: 5)),
     ),
     ChatMessage(
       text:
-          'Hi theretherethersssadsathere dsdsadsadsadsadsaHi theretherethersssadsathere dsdsadsadsadsadsa!',
-      sender: 'User2',
+          'Halo, Dokter. Saya khawatir dengan pertumbuhan anak saya. Dia tampak lebih kecil dari anak-anak seusianya.',
+      sender: 'Ibu',
       time: DateTime.now().subtract(Duration(minutes: 3)),
     ),
     ChatMessage(
-      text: 'How are you?',
-      sender: 'User1',
+      text:
+          'Apakah Anda sudah memeriksakan anak Anda ke dokter sebelumnya terkait masalah pertumbuhan ini?',
+      sender: 'Dokter',
       time: DateTime.now().subtract(Duration(minutes: 2)),
     ),
     ChatMessage(
-      text: "I'm good. Thanks!",
-      sender: 'User2',
+      text:
+          'Ya, saya sudah membawanya ke puskesmas beberapa bulan yang lalu. Namun, tidak ada perubahan yang signifikan dalam pertumbuhannya.',
+      sender: 'Ibu',
       time: DateTime.now().subtract(Duration(minutes: 1)),
     ),
     ChatMessage(
       text:
-          'Hi theretherethersssadsathere dsdsadsadsadsadsaHi theretherethersssadsathere dsdsadsadsadsadsa!',
-      sender: 'User2',
+          'Pertumbuhan yang terhambat pada anak dapat menjadi tanda stunting. Apakah Anda memberikan nutrisi yang baik untuk anak Anda?',
+      sender: 'Dokter',
       time: DateTime.now().subtract(Duration(minutes: 3)),
     ),
     ChatMessage(
-      text: 'How are you?',
-      sender: 'User1',
+      text:
+          'Saya mencoba memberikan makanan sehat, tetapi anak saya sering menolak dan hanya makan sedikit.',
+      sender: 'Ibu',
       time: DateTime.now().subtract(Duration(minutes: 2)),
     ),
     ChatMessage(
-      text: "I'm good. Thanks!",
-      sender: 'User2',
+      text:
+          'Memastikan nutrisi yang cukup penting untuk pertumbuhan anak. Kita harus mencari tahu penyebab anak Anda tidak mau makan. Apakah ada gejala kesehatan lain yang Anda perhatikan?',
+      sender: 'Dokter',
       time: DateTime.now().subtract(Duration(minutes: 1)),
     ),
     ChatMessage(
       text:
-          'Hi theretherethersssadsathere dsdsadsadsadsadsaHi theretherethersssadsathere dsdsadsadsadsadsa!',
-      sender: 'User2',
-      time: DateTime.now().subtract(Duration(minutes: 3)),
-    ),
-    ChatMessage(
-      text: 'How are you?',
-      sender: 'User1',
-      time: DateTime.now().subtract(Duration(minutes: 2)),
-    ),
-    ChatMessage(
-      text: "I'm good. Thanks!",
-      sender: 'User2',
+          'Anak saya sering mengalami sakit perut dan diare. Dia juga terlihat lemah dan tidak berenergi.',
+      sender: 'Ibu',
       time: DateTime.now().subtract(Duration(minutes: 1)),
     ),
-    // Add more messages as needed
+    ChatMessage(
+      text:
+          'Sakit perut dan diare dapat menjadi tanda gizi buruk pada anak. Saya sarankan Anda membawa anak Anda untuk diperiksa lebih lanjut agar kami bisa menentukan diagnosis yang tepat dan memberikan perawatan yang sesuai.',
+      sender: 'Dokter',
+      time: DateTime.now().subtract(Duration(minutes: 1)),
+    ),
+    // Tambahkan percakapan lebih lanjut sesuai kebutuhan
   ];
+
+  final DoctorController doctorController = Get.put(DoctorController());
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+    ProfileDoctor profileDoctor = doctorController.getProfileDoctor();
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: ScreenUtilInit(
@@ -181,13 +192,17 @@ class _PageChatState extends State<PageChat> {
                 child: Row(
                   children: [
                     IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
                         icon: Icon(
                           Icons.arrow_back,
                           color: Colors.white,
                         )),
                     CircleAvatar(
                       backgroundColor: Colors.red,
+                      backgroundImage:
+                          AssetImage(profileDoctor.gambarDokter.toString()),
                     ),
                     SizedBox(
                       width: 20.w,
@@ -197,7 +212,7 @@ class _PageChatState extends State<PageChat> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         ComponentTextPrimaryTittleBold(
-                          teks: "Gloria Borger",
+                          teks: profileDoctor.namaDokter.toString(),
                           size: SizeApp.SizeTextDescription.sp,
                           colorText: Colors.white,
                         ),
@@ -218,12 +233,12 @@ class _PageChatState extends State<PageChat> {
                     final message = messages[index];
                     return Container(
                       padding: EdgeInsets.all(8.0),
-                      alignment: message.sender == 'User1'
+                      alignment: message.sender == 'Ibu'
                           ? Alignment.centerRight
                           : Alignment.centerLeft,
                       child: Bubble(
                         message: message.text,
-                        isMe: message.sender == 'User1',
+                        isMe: message.sender == 'Ibu',
                         time: message.time,
                       ),
                     );

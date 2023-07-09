@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "724164965314",
+    "firebase_url": "https://fit-help-app-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "fit-help-app",
+    "storage_bucket": "fit-help-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:724164965314:android:59338a40727cbf12731c5b",
+        "android_client_info": {
+          "package_name": "com.belajar.fit_help_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "724164965314-m4f0bihnvrc73ug0j329eflbh70m9kio.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIEzZvMW1A-00ajlC2fhJnsjZpsvZJHFA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "724164965314-m4f0bihnvrc73ug0j329eflbh70m9kio.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "724164965314-l98d1m0ttk4tnt6dveqp60haas9rd2jp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.belajar.fitHelpApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

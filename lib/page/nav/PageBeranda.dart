@@ -3,6 +3,8 @@ import 'package:fit_help_app/page/PageCariDokterAnak.dart';
 import 'package:fit_help_app/page/PageLogin.dart';
 import 'package:fit_help_app/page/nav/PageIdentifikasiAnak.dart';
 import 'package:fit_help_app/page/nav/PageIdentifikasiAnakGiziBuruk.dart';
+import 'package:fit_help_app/page/nav/PageInformasiGiziBurk.dart';
+import 'package:fit_help_app/page/nav/PageInformasiStunting.dart';
 import 'package:fit_help_app/util/list_color.dart';
 import 'package:fit_help_app/util/size.dart';
 import 'package:flutter/material.dart';
@@ -29,10 +31,10 @@ List<ModelMenu> listMenu = [
 ];
 
 List<ModelMenu> listMenuBottom = [
-  ModelMenu(
-      "Informasi Gizi Buruk", "assets/ic_therapy.png", "apa itu stunting"),
-  ModelMenu(
-      "Informasi Stunting", "assets/ic_gejala_stunting.png", "gejala stunting"),
+  ModelMenu("Informasi Gizi Buruk", "assets/ic_therapy.png",
+      PageInformasiGiziBuruk.routeName.toString()),
+  ModelMenu("Informasi Stunting", "assets/ic_gejala_stunting.png",
+      PageInformasiStunting.routeName.toString()),
 ];
 
 class _PageBerandaState extends State<PageBeranda> {

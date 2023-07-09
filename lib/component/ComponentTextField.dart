@@ -68,21 +68,22 @@ class _TextFieldPasswordState extends State<TextFieldPassword> {
                     widget.passwordType!
                         ? Icons.visibility
                         : Icons.visibility_off,
-                    color: ListColor.warnaBiruSidoKare,
+                    color: ColorApp.primary,
                   )),
               hintText: widget.hintText,
+              fillColor: Color.fromARGB(255, 235, 235, 235),
+              filled: true,
               contentPadding: EdgeInsets.all(15),
               enabledBorder: OutlineInputBorder(
-                  borderSide:
-                      BorderSide(width: 1, color: ListColor.warnaBiruSidoKare),
+                  borderSide: BorderSide(
+                      width: 1, color: Color.fromARGB(255, 61, 61, 61)),
                   borderRadius: BorderRadius.all(Radius.circular(10))),
               focusedBorder: OutlineInputBorder(
-                  borderSide:
-                      BorderSide(width: 2, color: ListColor.warnaBiruSidoKare),
+                  borderSide: BorderSide(width: 2, color: ColorApp.primary),
                   borderRadius: BorderRadius.all(Radius.circular(10))),
               border: OutlineInputBorder(
-                  borderSide:
-                      BorderSide(width: 1, color: ListColor.warnaBiruSidoKare),
+                  borderSide: BorderSide(
+                      width: 1, color: Color.fromARGB(255, 252, 252, 252)),
                   borderRadius: BorderRadius.all(Radius.circular(10)))),
         ),
       ],
@@ -360,25 +361,23 @@ class TextFieldImport {
             FilteringTextInputFormatter.digitsOnly,
             LengthLimitingTextInputFormatter(length)
           ],
-          style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.normal),
           keyboardType: TextInputType.number,
+          style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.normal),
           decoration: InputDecoration(
               hintText: hintText,
+              fillColor: Color.fromARGB(255, 235, 235, 235),
+              filled: true,
               contentPadding: EdgeInsets.all(15),
-              // ignore: prefer_const_constructors
               enabledBorder: OutlineInputBorder(
-                  borderSide:
-                      BorderSide(width: 1, color: ListColor.warnaBiruSidoKare),
+                  borderSide: BorderSide(
+                      width: 1, color: Color.fromARGB(255, 61, 61, 61)),
                   borderRadius: BorderRadius.all(Radius.circular(10))),
-              // ignore: prefer_const_constructors
               focusedBorder: OutlineInputBorder(
-                  borderSide:
-                      BorderSide(width: 2, color: ListColor.warnaBiruSidoKare),
+                  borderSide: BorderSide(width: 2, color: ColorApp.primary),
                   borderRadius: BorderRadius.all(Radius.circular(10))),
-              // ignore: prefer_const_constructors
               border: OutlineInputBorder(
-                  borderSide:
-                      BorderSide(width: 1, color: ListColor.warnaBiruSidoKare),
+                  borderSide: BorderSide(
+                      width: 1, color: Color.fromARGB(255, 252, 252, 252)),
                   borderRadius: BorderRadius.all(Radius.circular(10)))),
         ),
       ],

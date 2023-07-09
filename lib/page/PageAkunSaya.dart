@@ -1,8 +1,14 @@
 import 'package:fit_help_app/component/ComponentText.dart';
+import 'package:fit_help_app/controller/AkunController.dart';
+import 'package:fit_help_app/page/PageCariDokterAnak.dart';
 import 'package:fit_help_app/page/PageDetailAkunSaya.dart';
+import 'package:fit_help_app/page/PageIntro.dart';
+import 'package:fit_help_app/page/PageLogin.dart';
+import 'package:fit_help_app/util/SharedPrefencesHelper.dart';
 import 'package:fit_help_app/util/list_color.dart';
 import 'package:fit_help_app/util/size.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_profile_picture/flutter_profile_picture.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -13,9 +19,12 @@ class PageAkunSaya extends StatefulWidget {
 }
 
 class _PageAkunSayaState extends State<PageAkunSaya> {
+  final AkunController akunController = Get.put(AkunController());
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: ScreenUtilInit(
@@ -38,9 +47,12 @@ class _PageAkunSayaState extends State<PageAkunSaya> {
                         SizedBox(
                           width: 15,
                         ),
-                        CircleAvatar(
-                          backgroundColor: Colors.red,
-                          radius: 30.r,
+                        ProfilePicture(
+                          name: akunController.akun.value.namaLengkap,
+                          radius: 29,
+                          fontsize: 35.sp,
+                          random: true,
+                          count: 2,
                         ),
                         SizedBox(
                           width: 30,
@@ -49,12 +61,13 @@ class _PageAkunSayaState extends State<PageAkunSaya> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             ComponentTextPrimaryTittleBold(
-                              teks: "Diana",
+                              teks: akunController.akun.value.namaLengkap
+                                  .toString(),
                               size: SizeApp.SizeTextHeader.sp,
                               colorText: Colors.white,
                             ),
                             ComponentTextPrimaryDescriptionRegular(
-                              teks: "Nganjuk",
+                              teks: akunController.akun.value.alamat.toString(),
                               size: SizeApp.SizeTextButton.sp,
                               colorText: Colors.white,
                             )
@@ -109,58 +122,64 @@ class _PageAkunSayaState extends State<PageAkunSaya> {
                           ),
                         ),
                       ),
-                      Card(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.r)),
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                              top: 10, left: 10, right: 10, bottom: 10),
-                          child: Row(children: [
-                            Icon(
-                              Icons.info,
-                              size: 50,
-                            ),
-                            ComponentTextPrimaryDescriptionBold(
-                              teks: "Tentang Aplikasi",
-                              size: SizeApp.SizeTextButton.sp,
-                            ),
-                            Expanded(child: Container()),
-                            Icon(
-                              Icons.arrow_right,
-                              color: Colors.black,
-                            ),
-                            SizedBox(
-                              width: 30,
-                            )
-                          ]),
-                        ),
-                      ),
-                      Card(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.r)),
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                              top: 10, left: 10, right: 10, bottom: 10),
-                          child: Row(children: [
-                            Icon(
-                              Icons.logout_outlined,
-                              size: 50,
-                            ),
-                            ComponentTextPrimaryDescriptionBold(
-                              teks: "Keluar Akun",
-                              size: SizeApp.SizeTextButton.sp,
-                            ),
-                            Expanded(child: Container()),
-                            Icon(
-                              Icons.arrow_right,
-                              color: Colors.black,
-                            ),
-                            SizedBox(
-                              width: 30,
-                            )
-                          ]),
+                      // Card(
+                      //   color: Colors.white,
+                      //   shape: RoundedRectangleBorder(
+                      //       borderRadius: BorderRadius.circular(15.r)),
+                      //   child: Padding(
+                      //     padding: EdgeInsets.only(
+                      //         top: 10, left: 10, right: 10, bottom: 10),
+                      //     child: Row(children: [
+                      //       Icon(
+                      //         Icons.info,
+                      //         size: 50,
+                      //       ),
+                      //       ComponentTextPrimaryDescriptionBold(
+                      //         teks: "Tentang Aplikasi",
+                      //         size: SizeApp.SizeTextButton.sp,
+                      //       ),
+                      //       Expanded(child: Container()),
+                      //       Icon(
+                      //         Icons.arrow_right,
+                      //         color: Colors.black,
+                      //       ),
+                      //       SizedBox(
+                      //         width: 30,
+                      //       )
+                      //     ]),
+                      //   ),
+                      // ),
+                      GestureDetector(
+                        onTap: () {
+                          SharedPreferencesHelper.setLoggedIn(false);
+                          Get.offAndToNamed(PageLogin.routeName.toString());
+                        },
+                        child: Card(
+                          color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.r)),
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                                top: 10, left: 10, right: 10, bottom: 10),
+                            child: Row(children: [
+                              Icon(
+                                Icons.logout_outlined,
+                                size: 50,
+                              ),
+                              ComponentTextPrimaryDescriptionBold(
+                                teks: "Keluar Akun",
+                                size: SizeApp.SizeTextButton.sp,
+                              ),
+                              Expanded(child: Container()),
+                              Icon(
+                                Icons.arrow_right,
+                                color: Colors.black,
+                              ),
+                              SizedBox(
+                                width: 30,
+                              )
+                            ]),
+                          ),
                         ),
                       )
                     ],

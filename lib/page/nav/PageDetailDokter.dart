@@ -86,6 +86,7 @@ class _PageDetailDokterState extends State<PageDetailDokter> {
   Widget build(BuildContext context) {
     // TODO: implement build
     ProfileDoctor profileDoctor = doctorController.getProfileDoctor();
+
     listKomentar = generateKomentarUsers(generateRandomEvenNumber(1, 20));
     return Scaffold(
       body: ScreenUtilInit(

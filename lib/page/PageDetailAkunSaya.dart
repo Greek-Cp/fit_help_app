@@ -1,10 +1,13 @@
 import 'package:fit_help_app/component/ComponentButton.dart';
 import 'package:fit_help_app/component/ComponentText.dart';
 import 'package:fit_help_app/component/ComponentTextField.dart';
+import 'package:fit_help_app/controller/AkunController.dart';
 import 'package:fit_help_app/util/list_color.dart';
 import 'package:fit_help_app/util/size.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_profile_picture/flutter_profile_picture.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class PageDetailAkunSaya extends StatefulWidget {
   static String? routeName = "/PageDetailAkunSaya";
@@ -18,11 +21,17 @@ class _NamePageState extends State<PageDetailAkunSaya> {
   TextEditingController emailController = TextEditingController();
   TextEditingController kataSandiController = TextEditingController();
 
+  final AkunController akunController = Get.put(AkunController());
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-
+    namaLengkapController.text =
+        akunController.akun.value.namaLengkap.toString();
+    noHandphoneController.text =
+        akunController.akun.value.noHandphone.toString();
+    emailController.text = akunController.akun.value.email.toString();
+    kataSandiController.text = akunController.akun.value.kataSandi.toString();
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -50,8 +59,12 @@ class _NamePageState extends State<PageDetailAkunSaya> {
                       colorText: Colors.black,
                     ),
                     Center(
-                      child: CircleAvatar(
-                        radius: 40,
+                      child: ProfilePicture(
+                        name: akunController.akun.value.namaLengkap,
+                        radius: 39,
+                        fontsize: 35.sp,
+                        random: true,
+                        count: 2,
                       ),
                     ),
                     TextFieldImport.TextForm(

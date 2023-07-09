@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:fit_help_app/page/BaseNav.dart';
 import 'package:fit_help_app/page/PageAkunSaya.dart';
 import 'package:fit_help_app/page/PageDaftar.dart';
@@ -8,18 +9,25 @@ import 'package:fit_help_app/page/nav/PageChat.dart';
 import 'package:fit_help_app/page/nav/PageDetailDokter.dart';
 import 'package:fit_help_app/page/nav/PageIdentifikasiAnak.dart';
 import 'package:fit_help_app/page/nav/PageIdentifikasiAnakGiziBuruk.dart';
+import 'package:fit_help_app/page/nav/PageInformasiGiziBurk.dart';
+import 'package:fit_help_app/page/nav/PageInformasiStunting.dart';
 import 'package:fit_help_app/page/nav/PageProfileSaya.dart';
 import 'package:fit_help_app/util/list_color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
+import 'firebase_options.dart';
 import 'page/PageCariDokterAnak.dart';
 import 'page/PageDetailAkunSaya.dart';
 import 'page/PageGantiSandi.dart';
 import 'page/PageListChat.dart';
 import 'page/TestPage.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MainApp());
 }
 
@@ -29,6 +37,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Colors.amber,
         cardColor: ColorApp.primary,
@@ -85,7 +94,13 @@ class MainApp extends StatelessWidget {
         GetPage(
           name: PageListChat.routeName.toString(),
           page: () => PageListChat(),
-        )
+        ),
+        GetPage(
+            name: PageInformasiStunting.routeName.toString(),
+            page: () => PageInformasiStunting()),
+        GetPage(
+            name: PageInformasiGiziBuruk.routeName.toString(),
+            page: () => PageInformasiGiziBuruk())
       ],
     );
   }

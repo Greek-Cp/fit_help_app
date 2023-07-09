@@ -1,7 +1,10 @@
 import 'package:fit_help_app/component/ComponentButton.dart';
 import 'package:fit_help_app/component/ComponentText.dart';
+import 'package:fit_help_app/controller/AkunController.dart';
+import 'package:fit_help_app/page/BaseNav.dart';
 import 'package:fit_help_app/page/PageDaftar.dart';
 import 'package:fit_help_app/page/PageLogin.dart';
+import 'package:fit_help_app/util/SharedPrefencesHelper.dart';
 import 'package:fit_help_app/util/list_color.dart';
 import 'package:fit_help_app/util/size.dart';
 import 'package:flutter/material.dart';
@@ -15,9 +18,33 @@ class PageIntro extends StatefulWidget {
 }
 
 class _NamePageState extends State<PageIntro> {
+  bool? loggedIn = false;
+  @override
+  void initState() {
+    super.initState();
+    checkLoginStatus();
+  }
+
+  void checkLoginStatus() async {
+    bool isLoggedIn = await SharedPreferencesHelper.isLoggedIn();
+    setState(() {
+      loggedIn = isLoggedIn;
+    });
+  }
+
+  final AkunController akunController = Get.put(AkunController());
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+
+    if (loggedIn == true) {
+      print("telah login");
+
+      akunController.loadAkun();
+      Get.toNamed(BaseNav.routeName.toString());
+    } else {
+      print("belum login");
+    }
     return Scaffold(
       body: ScreenUtilInit(
         builder: (context, child) {
